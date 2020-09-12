@@ -2,8 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 
-const apiRoutes = require('./routes/api-routes');
-const { PORT, DB_URI, MONGOOSE_OPTIONS } = require('./config');
+import apiRoutes from './routes/api-routes';
+import { PORT, DB_URI, MONGOOSE_OPTIONS } from './config/config';
 
 const app = express();
 

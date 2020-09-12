@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const schema = new Schema({
   muscleGroups: {
-    type: String ,
+    type: String,
     required: true,
   },
   description: {
@@ -14,8 +14,8 @@ const schema = new Schema({
   exercises: [
     {
       name: String,
-      description: String
-    }
+      description: String,
+    },
   ],
   reps: {
     type: Number,

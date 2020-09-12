@@ -1,3 +1,3 @@
 import workouts from './workouts';
 
-export default workouts;
+export default { workouts };
