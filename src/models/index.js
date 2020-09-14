@@ -1,3 +1,4 @@
-import workouts from './workouts';
+import Workouts from './Workouts';
+import User from './User';
 
-export default { workouts };
+export default { Workouts, User };

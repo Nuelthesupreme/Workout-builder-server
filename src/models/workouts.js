@@ -25,6 +25,10 @@ const schema = new Schema({
     type: Number,
     required: true,
   },
+  userId: {
+    type: String,
+    required: true,
+  },
 });
 const Workout = mongoose.model('workouts', schema);
 export default Workout;

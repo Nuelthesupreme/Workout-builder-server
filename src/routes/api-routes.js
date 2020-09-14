@@ -3,11 +3,11 @@ import express from 'express';
 const router = express.Router();
 
 const getAllWorkouts = (req, res) => {
-  res.json({ res: 'all restaurants' });
+  res.json({ res: 'workouts' });
 };
 
 const getAllWorkoutsById = (req, res) => {
-  res.json({ res: 'restaurant by id' });
+  res.json({ res: 'workouts by id' });
 };
 
 router.get('/workouts', getAllWorkouts);
