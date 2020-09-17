@@ -13,22 +13,27 @@ const schema = new Schema({
   },
   exercises: [
     {
-      name: String,
-      description: String,
+      type: {
+        name: String,
+        description: String,
+      },
+      reps: {
+        type: Number,
+        required: true,
+      },
+      sets: {
+        type: Number,
+        required: true,
+      },
     },
   ],
-  reps: {
-    type: Number,
-    required: true,
-  },
-  sets: {
-    type: Number,
-    required: true,
-  },
   userId: {
     type: String,
     required: true,
   },
+
 });
-const Workout = mongoose.model('workouts', schema);
+
+const Workout = mongoose.model('Workout', schema);
+
 export default Workout;

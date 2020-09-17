@@ -1,4 +1,4 @@
-const workoutData = [
+const muscleGroupData = [
   {
     muscleGroup: 'chest',
     description: 'chest workout for pectorial muscle',
@@ -157,4 +157,4 @@ const workoutData = [
   },
 ];
 
-export default workoutData;
+export default muscleGroupData;
