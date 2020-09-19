@@ -7,11 +7,15 @@ const schema = new Schema({
     type: String,
     required: true,
   },
+  muscleGroupId: {
+    type: Schema.Types.ObjectId,
+    ref: 'muscleGroups'
+  },
   selectedExercises: [
     {
       exerciseId: {
         type: Schema.Types.ObjectId,
-        ref: 'exercises'
+        ref: 'exercise'
       },
       reps: {
         type: Number,
@@ -29,6 +33,6 @@ const schema = new Schema({
   },
 });
 
-const Workouts = mongoose.model('workouts', schema);
+const Workout = mongoose.model('workout', schema);
 
-export default Workouts;
+export default Workout;

@@ -13,6 +13,6 @@ const schema = new Schema({
   },
 })
 
-const Exercises = mongoose.model('exercises', schema);
+const Exercise = mongoose.model('exercise', schema);
 
-export default Exercises;
+export default Exercise;

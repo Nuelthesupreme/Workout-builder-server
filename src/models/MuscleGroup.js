@@ -6,18 +6,20 @@ const schema = new Schema({
   name: {
     type: String,
     required: true,
-  },,
+  },
   description: {
     type: String,
     required: false,
   },
-  exercises: {
-    type: [Schema.Types.ObjectId],
-    ref: 'exercises'
-  },
+  exercises: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'exercise'
+    }
+  ],
 })
 
 
-const MuscleGroups = mongoose.model('muscleGroups', schema);
+const MuscleGroup = mongoose.model('muscleGroup', schema);
 
-export default MuscleGroups;
+export default MuscleGroup;
