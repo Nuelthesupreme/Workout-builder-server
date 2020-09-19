@@ -3,28 +3,26 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const schema = new Schema({
-  muscleGroups: {
+  name: {
     type: String,
     required: true,
   },
-  description: {
-    type: String,
-    required: false,
-  },
-  exercises: [
+  selectedExercises: [
     {
-      name: String,
-      description: String,
+      exerciseId: {
+        type: Schema.Types.ObjectId,
+        ref: 'exercises'
+      },
+      reps: {
+        type: Number,
+        required: true,
+      },
+      sets: {
+        type: Number,
+        required: true,
+      },
     },
   ],
-  reps: {
-    type: Number,
-    required: true,
-  },
-  sets: {
-    type: Number,
-    required: true,
-  },
   userId: {
     type: String,
     required: true,
