@@ -11,6 +11,18 @@ const schema = new Schema({
     type: String,
     required: true,
   },
+  imageUrl: {
+    type: String,
+    required: true,
+  },
+  externalLink: {
+    type: String,
+    required: true,
+  },
+  equipments: [{
+    type: String,
+    required: true,
+  }],
 });
 
 const Exercise = mongoose.model('exercise', schema);
