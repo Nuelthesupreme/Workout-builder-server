@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 import { DB_URI, MONGOOSE_OPTIONS } from '../config';
 import db from '../models';
-import exercises from "./data/exercises";
+import exercises from './data/exercises';
 
 mongoose.connect(DB_URI, MONGOOSE_OPTIONS);
 

@@ -5,8 +5,8 @@ const exercises = [
     imageUrl: 'https://www.burnthefatinnercircle.com/members/images/1691.jpg',
     externalLink: 'https://www.bodybuilding.com/content/how-to-bench-press-layne-norton-complete-guide.html',
     equipments: [
-      "Barbell", "Bench"
-    ]
+      'Barbell', 'Bench',
+    ],
   },
   {
     name: 'Incline bench press',
@@ -14,8 +14,8 @@ const exercises = [
     imageUrl: 'https://www.burnthefatinnercircle.com/members/images/1669.jpg',
     externalLink: 'https://www.bodybuilding.com/content/exercise-of-the-week-incline-barbell-bench-press.html',
     equipments: [
-      "Barbell", "Bench"
-    ]
+      'Barbell', 'Bench',
+    ],
   },
   {
     name: 'Decline bench press',
@@ -23,8 +23,8 @@ const exercises = [
     imageUrl: 'https://images.squarespace-cdn.com/content/v1/55e406fbe4b0b03c5e7543ae/1492945457901-Z6JGIW7OSYVY7OSUMCOO/ke17ZwdGBToddI8pDm48kIQdKspKbuea70QwULU3UqpZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVFM58_o4dpABNtuEkDaAQTZ-Y5xbWdURVX2RU1qTyNEET1mPoWDJTAPY6sdAZ0cJ30/Decline+Barbell+Chest+Press',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Barbell", "Bench"
-    ]
+      'Barbell', 'Bench',
+    ],
   },
   {
     name: 'Bent-over dumbell rows',
@@ -32,8 +32,8 @@ const exercises = [
     imageUrl: 'https://cdn.shopify.com/s/files/1/1075/8446/files/exercise-35.jpg?0',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Dumbell"
-    ]
+      'Dumbell',
+    ],
   },
   {
     name: 'Over-hand barbell rows',
@@ -41,8 +41,8 @@ const exercises = [
     imageUrl: 'https://cdn2.omidoo.com/sites/default/files/imagecache/full_width/images/bydate/201708/bentoverbarbellrow.jpg',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Barbell"
-    ]
+      'Barbell',
+    ],
   },
   {
     name: 'T-bar rows',
@@ -50,8 +50,8 @@ const exercises = [
     imageUrl: 'https://images.squarespace-cdn.com/content/v1/55e406fbe4b0b03c5e7543ae/1492946024443-ZRF6GX28ZCZZJD0YPUTJ/ke17ZwdGBToddI8pDm48kFI9vScT3c_tIdfInT2-t7FZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVHgIUgVziUXOjCkSAy0UWrTLeqAtxl0WhR4FPAUSk5cVURrWgx6uPrVNVNdzldvADg/T-Bar+Rows',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Barbell"
-    ]
+      'Barbell',
+    ],
   },
   {
     name: 'Squats',
@@ -59,8 +59,8 @@ const exercises = [
     imageUrl: 'https://www.burnthefatinnercircle.com/members/images/1131.jpg',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Barbell", "squat rack"
-    ]
+      'Barbell', 'squat rack',
+    ],
   },
   {
     name: 'Barbell launges',
@@ -68,8 +68,8 @@ const exercises = [
     imageUrl: 'https://st2.depositphotos.com/8546304/11406/i/950/depositphotos_114061440-stock-photo-lunges-with-a-barbell-on.jpg',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Barbell"
-    ]
+      'Barbell',
+    ],
   },
   {
     name: 'Calf raises',
@@ -77,8 +77,8 @@ const exercises = [
     imageUrl: 'https://www.burnthefatinnercircle.com/members/images/1747.jpg',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "calves-raises-machine", "leg-press-machine"
-    ]
+      'calves-raises-machine', 'leg-press-machine',
+    ],
   },
   {
     name: 'Barbell curls',
@@ -86,8 +86,8 @@ const exercises = [
     imageUrl: 'https://www.burnthefatinnercircle.com/members/images/1869.jpg',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Barbell"
-    ]
+      'Barbell',
+    ],
   },
   {
     name: 'Dumbell curls',
@@ -95,8 +95,8 @@ const exercises = [
     imageUrl: 'https://www.burnthefatinnercircle.com/members/images/1683b.jpg?cb=20191017074720',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Barbell"
-    ]
+      'Barbell',
+    ],
   },
   {
     name: 'Hammer curls',
@@ -104,8 +104,8 @@ const exercises = [
     imageUrl: 'https://www.burnthefatinnercircle.com/members/images/1510b.jpg?cb=20191205203859',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Dumbells"
-    ]
+      'Dumbells',
+    ],
   },
   {
     name: 'Tricep dips',
@@ -113,8 +113,8 @@ const exercises = [
     imageUrl: 'https://www.burnthefatinnercircle.com/members/images/1084.jpg',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Tricep-dips machine", "Bench"
-    ]
+      'Tricep-dips machine', 'Bench',
+    ],
   },
   {
     name: 'Tricep push-downs',
@@ -122,8 +122,8 @@ const exercises = [
     imageUrl: 'https://global-uploads.webflow.com/5d1d0d3f53ced35a29dbe169/5de7af82dd80e669098c020a_tricep-pushdown-anabolic-aliens.jpg',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Tricep-pushdown-machine"
-    ]
+      'Tricep-pushdown-machine',
+    ],
   },
   {
     name: 'Tricep kickbacks',
@@ -131,8 +131,8 @@ const exercises = [
     imageUrl: 'https://cdn.shopify.com/s/files/1/1075/8446/files/exercise-47.jpg?0',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Dumbells"
-    ]
+      'Dumbells',
+    ],
   },
   {
     name: 'Dumbell shoulder press',
@@ -140,8 +140,8 @@ const exercises = [
     imageUrl: 'https://www.gymguider.com/wp-content/uploads/2018/03/Exercise-1-Dumbbell-Shoulder-Press.jpg',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Dumbells", "Bench"
-    ]
+      'Dumbells', 'Bench',
+    ],
   },
   {
     name: 'Arnold press',
@@ -149,8 +149,8 @@ const exercises = [
     imageUrl: 'https://wl-brightside.cf.tsp.li/resize/728x/jpg/74d/ebb/9908cd54948768d96ca3d1f012.jpg',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Dumbells", "Bench"
-    ]
+      'Dumbells', 'Bench',
+    ],
   },
   {
     name: 'Side raises',
@@ -158,8 +158,8 @@ const exercises = [
     imageUrl: 'https://lh3.googleusercontent.com/proxy/cwZBcisT2xS3OL0tn4ibTpehukyOw8pR9PP5Uw8DJBmQlepiIezyE0wMyaGiTrvTdHfvE4AMqK2yx2NGVyKpkJtBOsf4xLorLB7M61o_F0m5CRMOYK19VYnajAm6D52JttoYx_IHbzicYv_w6uxq2chwmeS_w3SYEFZFdA',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Dumbells"
-    ]
+      'Dumbells',
+    ],
   },
   {
     name: 'Sit-ups',
@@ -167,8 +167,8 @@ const exercises = [
     imageUrl: 'https://www.burnthefatinnercircle.com/members/images/168.jpg',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Body-weight"
-    ]
+      'Body-weight',
+    ],
   },
   {
     name: 'Bicycle crunch',
@@ -176,8 +176,8 @@ const exercises = [
     imageUrl: 'https://www.burnthefatinnercircle.com/members/images/1081.jpg',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Body-weight"
-    ]
+      'Body-weight',
+    ],
   },
   {
     name: 'Elbow plank',
@@ -185,8 +185,8 @@ const exercises = [
     imageUrl: 'https://st2.depositphotos.com/8546304/11313/i/950/depositphotos_113135506-stock-photo-elbow-plank-exercise-fitness.jpg',
     externalLink: 'https://www.google.com/',
     equipments: [
-      "Body-weight"
-    ]
+      'Body-weight',
+    ],
   },
 ];
 

@@ -2,11 +2,9 @@ import mongoose from 'mongoose';
 
 import { DB_URI, MONGOOSE_OPTIONS } from '../config';
 import db from '../models';
-import workouts from "./data/workouts";
+import workouts from './data/workouts';
 
 mongoose.connect(DB_URI, MONGOOSE_OPTIONS);
-
-
 
 db.Workout.deleteMany({})
   .then(() => db.Workout.collection.insertMany(workouts))
