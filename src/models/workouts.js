@@ -30,5 +30,7 @@ const schema = new Schema({
     required: true,
   },
 });
-const Workouts = mongoose.model('Workouts', schema);
+
+const Workouts = mongoose.model('workouts', schema);
+
 export default Workouts;
