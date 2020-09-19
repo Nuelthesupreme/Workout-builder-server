@@ -1,4 +1,4 @@
-import Workouts from './Workouts';
+import Workouts from './workouts';
 import User from './User';
 
 export default { Workouts, User };

@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 
 import db from '../models';
 
-import { AUTH_SECRET } from '../config/config';
+import { AUTH_SECRET } from '../config';
 
 const authenticateUser = async (req, res, next) => {
   try {
