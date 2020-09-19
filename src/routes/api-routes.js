@@ -25,8 +25,8 @@ const getWorkoutById = async (req, res) => {
 
 const addWorkouts = async (req, res) => {
   try {
-    const content = req.body;
-    const data = await db.Workouts.create(content);
+    const workout = req.body;
+    const data = await db.Workouts.create(workout);
     res.status(201).json(data);
   } catch (error) {
     res.status(500).send({ error: error.message });
