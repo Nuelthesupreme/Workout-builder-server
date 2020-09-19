@@ -4,7 +4,7 @@ import cors from 'cors';
 
 import apiRoutes from './routes/api-routes';
 import userAuth from './routes/auth-routes';
-import { PORT, DB_URI, MONGOOSE_OPTIONS } from './config/config';
+import { PORT, DB_URI, MONGOOSE_OPTIONS } from './config';
 import authenticateUser from './middlewares/authenticateUser';
 
 const app = express();
