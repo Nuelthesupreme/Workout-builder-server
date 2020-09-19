@@ -14,11 +14,10 @@ const schema = new Schema({
   exercises: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'exercise'
-    }
+      ref: 'exercise',
+    },
   ],
-})
-
+});
 
 const MuscleGroup = mongoose.model('muscleGroup', schema);
 

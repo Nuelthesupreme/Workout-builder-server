@@ -9,13 +9,13 @@ const schema = new Schema({
   },
   muscleGroupId: {
     type: Schema.Types.ObjectId,
-    ref: 'muscleGroups'
+    ref: 'muscleGroups',
   },
   selectedExercises: [
     {
       exerciseId: {
         type: Schema.Types.ObjectId,
-        ref: 'exercise'
+        ref: 'exercise',
       },
       reps: {
         type: Number,

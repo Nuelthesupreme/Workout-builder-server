@@ -7,14 +7,14 @@ mongoose.connect(DB_URI, MONGOOSE_OPTIONS);
 
 const exercises = [
   {
-    name: "Flat Bench Press",
-    description: "Lie down flat on a bench, use a barbell to press from your chest.",
+    name: 'Flat Bench Press',
+    description: 'Lie down flat on a bench, use a barbell to press from your chest.',
   },
   {
-    name: "Incline dumbbell flyes",
-    description: "Lie down flat on a bench, use a barbell to press from your chest.",
-  }
-]
+    name: 'Incline dumbbell flyes',
+    description: 'Lie down flat on a bench, use a barbell to press from your chest.',
+  },
+];
 
 db.Exercise.deleteMany({})
   .then(() => db.Exercise.collection.insertMany(exercises))
