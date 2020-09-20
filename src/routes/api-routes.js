@@ -3,7 +3,7 @@ import db from '../models';
 
 const router = express.Router();
 
-const getAllWorkouts = async (req, res) => {
+const getWorkouts = async (req, res) => {
   try {
     const { id } = req.user;
     const data = await db.Workout
@@ -16,19 +16,27 @@ const getAllWorkouts = async (req, res) => {
   }
 };
 
-const getWorkoutById = async (req, res) => {
+const getWorkout = async (req, res) => {
   try {
-    const { id } = req.params;
-    const data = await db.Workout.findById(id);
+    const { id: workoutId } = req.params;
+    const { id: userId } = req.user;
+    const data = await db.Workout
+      .findOne({ _id: workoutId, userId })
+      .populate({ path: 'muscleGroup', select: 'name description' })
+      .populate('exercises.exercise');
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-const addWorkouts = async (req, res) => {
+const createWorkout = async (req, res) => {
   try {
-    const workout = req.body;
+    const { id: userId } = req.user;
+    const { name, muscleGroup, exercises } = req.body;
+    const workout = {
+      name, muscleGroup, exercises, userId,
+    };
     const data = await db.Workout.create(workout);
     res.status(201).json(data);
   } catch (error) {
@@ -38,9 +46,14 @@ const addWorkouts = async (req, res) => {
 
 const updateWorkout = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id: workoutId } = req.params;
+    const { id: userId } = req.user;
     const content = req.body;
-    const data = await db.Workout.findByIdAndUpdate(id, content, { upsert: true });
+    const data = await db.Workout.findOneAndUpdate(
+      { _id: workoutId, userId },
+      content,
+      { new: true },
+    );
     res.status(200).json(data);
   } catch (error) {
     res.status(500).send({ error: error.message });
@@ -49,17 +62,18 @@ const updateWorkout = async (req, res) => {
 
 const deleteWorkout = async (req, res) => {
   try {
-    const { id } = req.params;
-    const data = await db.Workouts.findByIdAndDelete(id);
+    const { id: workoutId } = req.params;
+    const { id: userId } = req.user;
+    const data = await db.Workout.findOneAndDelete({ _id: workoutId, userId });
     res.status(200).json(data);
   } catch (error) {
     res.status(500).send({ error: error.message });
   }
 };
 
-router.get('/workouts', getAllWorkouts);
-router.get('/workouts/:id', getWorkoutById);
-router.post('/workouts', addWorkouts);
+router.get('/workouts', getWorkouts);
+router.post('/workouts', createWorkout);
+router.get('/workouts/:id', getWorkout);
 router.put('/workouts/:id', updateWorkout);
 router.delete('/workouts/:id', deleteWorkout);
 
