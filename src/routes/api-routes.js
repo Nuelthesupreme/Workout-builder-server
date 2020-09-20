@@ -118,9 +118,27 @@ const deleteWorkout = async (req, res) => {
   }
 };
 
-const getExercisesForMuscleGroup = () => {};
+const getExercisesForMuscleGroup = async (req, res) => {
+  try {
+    const { id: muscleGroupId } = req.params;
 
-const getMuscleGroups = () => {};
+    const data = await db.MuscleGroup.findById(muscleGroupId).populate('exercises');
+
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+};
+
+const getMuscleGroups = async (_, res) => {
+  try {
+    const data = await db.MuscleGroup.find({}).populate('exercises');
+
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+};
 
 router.get('/workouts', getWorkouts);
 router.post('/workouts', createWorkout);
