@@ -3,47 +3,42 @@ import mongoose from 'mongoose';
 const workouts = [
   {
     name: '15 minute chest plan',
-    muscleGroupId: mongoose.Types.ObjectId('5f66552f45316d738c81faa7'),
-    selectedExercises: [
+    muscleGroup: mongoose.Types.ObjectId('5f6736eac3220979780dd11c'),
+    exercises: [
       {
-        exerciseId: mongoose.Types.ObjectId('5f6651ef2ce29d2f0839b06d'),
+        exercise: mongoose.Types.ObjectId('5f6736477ea36177f5a24ee2'),
         reps: 10,
         sets: 4,
       },
       {
-        exerciseId: mongoose.Types.ObjectId('5f6651ef2ce29d2f0839b06e'),
+        exercise: mongoose.Types.ObjectId('5f6736477ea36177f5a24ee3'),
         reps: 10,
         sets: 4,
       },
       {
-        exerciseId: mongoose.Types.ObjectId('5f6651ef2ce29d2f0839b06f'),
+        exercise: mongoose.Types.ObjectId('5f6736477ea36177f5a24ee4'),
         reps: 12,
         sets: 5,
       },
     ],
-    userId: '5f6602a23eb0b11860966532',
+    userId: '5f6737b6fb84297a2029ec97',
   },
   {
     name: '10 minute ab workout',
-    muscleGroupId: mongoose.Types.ObjectId('5f66552f45316d738c81faa7'),
-    selectedExercises: [
+    muscleGroup: mongoose.Types.ObjectId('5f6736eac3220979780dd122'),
+    exercises: [
       {
-        exerciseId: mongoose.Types.ObjectId('5f6651ef2ce29d2f0839b06d'),
+        exercise: mongoose.Types.ObjectId('5f6736477ea36177f5a24ef4'),
         reps: 10,
         sets: 4,
       },
       {
-        exerciseId: mongoose.Types.ObjectId('5f6651ef2ce29d2f0839b06e'),
+        exercise: mongoose.Types.ObjectId('5f6736477ea36177f5a24ef5'),
         reps: 10,
         sets: 4,
-      },
-      {
-        exerciseId: mongoose.Types.ObjectId('5f6651ef2ce29d2f0839b06f'),
-        reps: 12,
-        sets: 5,
       },
     ],
-    userId: '5f6706b28b67710b204bb2e6',
+    userId: '5f6737a7fb84297a2029ec96',
   },
 ];
 

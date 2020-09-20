@@ -6,7 +6,10 @@ const router = express.Router();
 const getAllWorkouts = async (req, res) => {
   try {
     const { id } = req.user;
-    const data = await db.Workout.find({ userId: id });
+    const data = await db.Workout
+      .find({ userId: id })
+      .populate({ path: 'muscleGroup', select: 'name description' })
+      .populate('exercises.exercise');
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error: error.message });
