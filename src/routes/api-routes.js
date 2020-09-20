@@ -44,14 +44,61 @@ const createWorkout = async (req, res) => {
   }
 };
 
+const getUpdateParams = (requestBody) => {
+  let params = {};
+  let set = {};
+
+  const { action } = requestBody;
+
+  if (requestBody.name) {
+    set = { ...set, name: requestBody.name };
+    params = {
+      ...params,
+      $set: set,
+    };
+  }
+
+  if (requestBody.muscleGroup) {
+    set = { ...set, muscleGroup: requestBody.muscleGroup, exercises: requestBody.exercises || [] };
+    params = {
+      ...params,
+      $set: set,
+    };
+  }
+
+  if (action === 'add') {
+    params = {
+      ...params,
+      ...set,
+      $push: { exercises: requestBody.exercises },
+    };
+  }
+
+  if (action === 'remove') {
+    const exercises = requestBody.exercises.map(({ exercise }) => exercise);
+    params = {
+      ...params,
+      ...set,
+      $pull: {
+        exercises: {
+          exercise: {
+            $in: exercises,
+          },
+        },
+      },
+    };
+  }
+
+  return params;
+};
+
 const updateWorkout = async (req, res) => {
   try {
     const { id: workoutId } = req.params;
     const { id: userId } = req.user;
-    const content = req.body;
     const data = await db.Workout.findOneAndUpdate(
       { _id: workoutId, userId },
-      content,
+      getUpdateParams(req.body),
       { new: true },
     );
     res.status(200).json(data);
@@ -71,10 +118,17 @@ const deleteWorkout = async (req, res) => {
   }
 };
 
+const getExercisesForMuscleGroup = () => {};
+
+const getMuscleGroups = () => {};
+
 router.get('/workouts', getWorkouts);
 router.post('/workouts', createWorkout);
 router.get('/workouts/:id', getWorkout);
 router.put('/workouts/:id', updateWorkout);
 router.delete('/workouts/:id', deleteWorkout);
+
+router.get('/muscleGroups', getMuscleGroups);
+router.get('/muscleGroups/:id/exercises', getExercisesForMuscleGroup);
 
 export default router;
