@@ -1,14 +1,13 @@
 import mongoose from 'mongoose';
 
-import { MONGOOSE_OPTIONS, DB_URI } from '../config';
-
+import { DB_URI, MONGOOSE_OPTIONS } from '../config';
 import db from '../models';
-import seed from './seed';
+import exercises from './data/exercises';
 
 mongoose.connect(DB_URI, MONGOOSE_OPTIONS);
 
-db.Workouts.deleteMany({})
-  .then(() => db.Workouts.collection.insertMany(seed))
+db.Exercise.deleteMany({})
+  .then(() => db.Exercise.collection.insertMany(exercises))
   .then((data) => {
     console.log(`${data.result.n} records inserted!`);
     process.exit(0);
