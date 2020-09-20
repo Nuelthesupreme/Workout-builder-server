@@ -1,15 +1,15 @@
 import express from 'express';
-import db from '../models';
+// import db from '../models';
 
 const router = express.Router();
 
 const getUserWorkout = async (req, res) => {
   res.json({ success: 'poop' });
 };
-const getUserWorkOutById = async (req, res) => {};
-const deleteUserWorkOut = async (req, res) => {};
-const createUserWorkOut = async (req, res) => {};
-const updateUserWorkOut = async (req, res) => {};
+const getUserWorkOutById = async () => {};
+const deleteUserWorkOut = async () => {};
+const createUserWorkOut = async () => {};
+const updateUserWorkOut = async () => {};
 
 router.get('/userworkouts', getUserWorkout);
 router.get('/userworkouts/:id', getUserWorkOutById);
