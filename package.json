@@ -10,8 +10,8 @@
     "clean": "rm -rf dist",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "seed:exercise": "npm run build && node dist/seed/exercises.js",
-    "seed:muscleGroup": "npm run build && node dist/seed/muscleGroups.js",
+    "seed:exercises": "npm run build && node dist/seed/exercises.js",
+    "seed:muscleGroups": "npm run build && node dist/seed/muscleGroups.js",
     "seed:workouts": "npm run build && node dist/seed/workouts.js",
     "start": "npm run build && node dist/index.js",
     "start:dev": "nodemon -e js --watch src --exec \"npm run start\""

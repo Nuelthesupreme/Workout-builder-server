@@ -3,41 +3,104 @@ import db from '../models';
 
 const router = express.Router();
 
-const getAllWorkouts = async (req, res) => {
+const getWorkouts = async (req, res) => {
   try {
     const { id } = req.user;
-    const data = await db.Workouts.find({ userId: id });
+    const data = await db.Workout
+      .find({ userId: id })
+      .populate({ path: 'muscleGroup', select: 'name description' })
+      .populate('exercises.exercise');
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-const getWorkoutById = async (req, res) => {
+const getWorkout = async (req, res) => {
   try {
-    const { id } = req.params;
-    const data = await db.Workouts.findById(id);
+    const { id: workoutId } = req.params;
+    const { id: userId } = req.user;
+    const data = await db.Workout
+      .findOne({ _id: workoutId, userId })
+      .populate({ path: 'muscleGroup', select: 'name description' })
+      .populate('exercises.exercise');
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-const addWorkouts = async (req, res) => {
+const createWorkout = async (req, res) => {
   try {
-    const workout = req.body;
-    const data = await db.Workouts.create(workout);
+    const { id: userId } = req.user;
+    const { name, muscleGroup, exercises } = req.body;
+    const workout = {
+      name, muscleGroup, exercises, userId,
+    };
+    const data = await db.Workout.create(workout);
     res.status(201).json(data);
   } catch (error) {
     res.status(500).send({ error: error.message });
   }
 };
 
+const getUpdateParams = (requestBody) => {
+  let params = {};
+  let set = {};
+
+  const { action } = requestBody;
+
+  if (requestBody.name) {
+    set = { ...set, name: requestBody.name };
+    params = {
+      ...params,
+      $set: set,
+    };
+  }
+
+  if (requestBody.muscleGroup) {
+    set = { ...set, muscleGroup: requestBody.muscleGroup, exercises: requestBody.exercises || [] };
+    params = {
+      ...params,
+      $set: set,
+    };
+  }
+
+  if (action === 'add') {
+    params = {
+      ...params,
+      ...set,
+      $push: { exercises: requestBody.exercises },
+    };
+  }
+
+  if (action === 'remove') {
+    const exercises = requestBody.exercises.map(({ exercise }) => exercise);
+    params = {
+      ...params,
+      ...set,
+      $pull: {
+        exercises: {
+          exercise: {
+            $in: exercises,
+          },
+        },
+      },
+    };
+  }
+
+  return params;
+};
+
 const updateWorkout = async (req, res) => {
   try {
-    const { id } = req.params;
-    const content = req.body;
-    const data = await db.Workouts.findByIdAndUpdate(id, content, { upsert: true });
+    const { id: workoutId } = req.params;
+    const { id: userId } = req.user;
+    const data = await db.Workout.findOneAndUpdate(
+      { _id: workoutId, userId },
+      getUpdateParams(req.body),
+      { new: true },
+    );
     res.status(200).json(data);
   } catch (error) {
     res.status(500).send({ error: error.message });
@@ -46,18 +109,44 @@ const updateWorkout = async (req, res) => {
 
 const deleteWorkout = async (req, res) => {
   try {
-    const { id } = req.params;
-    const data = await db.Workouts.findByIdAndDelete(id);
+    const { id: workoutId } = req.params;
+    const { id: userId } = req.user;
+    const data = await db.Workout.findOneAndDelete({ _id: workoutId, userId });
     res.status(200).json(data);
   } catch (error) {
     res.status(500).send({ error: error.message });
   }
 };
 
-router.get('/workouts', getAllWorkouts);
-router.get('/workouts/:id', getWorkoutById);
-router.post('/workouts', addWorkouts);
+const getExercisesForMuscleGroup = async (req, res) => {
+  try {
+    const { id: muscleGroupId } = req.params;
+
+    const data = await db.MuscleGroup.findById(muscleGroupId).populate('exercises');
+
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+};
+
+const getMuscleGroups = async (_, res) => {
+  try {
+    const data = await db.MuscleGroup.find({}).populate('exercises');
+
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+};
+
+router.get('/workouts', getWorkouts);
+router.post('/workouts', createWorkout);
+router.get('/workouts/:id', getWorkout);
 router.put('/workouts/:id', updateWorkout);
 router.delete('/workouts/:id', deleteWorkout);
+
+router.get('/muscleGroups', getMuscleGroups);
+router.get('/muscleGroups/:id/exercises', getExercisesForMuscleGroup);
 
 export default router;

@@ -7,13 +7,13 @@ const schema = new Schema({
     type: String,
     required: true,
   },
-  muscleGroupId: {
+  muscleGroup: {
     type: Schema.Types.ObjectId,
-    ref: 'muscleGroups',
+    ref: 'muscleGroup',
   },
-  selectedExercises: [
+  exercises: [
     {
-      exerciseId: {
+      exercise: {
         type: Schema.Types.ObjectId,
         ref: 'exercise',
       },
