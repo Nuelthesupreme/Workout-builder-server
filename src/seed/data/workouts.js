@@ -40,6 +40,18 @@ const workouts = [
     ],
     userId: '5f6737a7fb84297a2029ec96',
   },
+  {
+    name: '20 minute leg workout',
+    muscleGroup: mongoose.Types.ObjectId('5f6736eac3220979780dd11e'),
+    exercises: [
+      {
+        exercise: mongoose.Types.ObjectId('5f6736477ea36177f5a24ee9'),
+        reps: 10,
+        sets: 4,
+      },
+    ],
+    userId: '5f6737b6fb84297a2029ec97',
+  },
 ];
 
 export default workouts;
