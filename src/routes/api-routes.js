@@ -118,26 +118,26 @@ const deleteWorkout = async (req, res) => {
   }
 };
 
-const saveWorkout = async (req, res) => {
-  try {
-    const { id: workoutId } = req.params;
-    const { id: userId } = req.user;
-    const data = await db.workout.create({ _id: workoutId, userId });
-    res.status(200).json(data);
-  } catch (error) {
-    res.status(500).send({ error: error.message });
-  }
-};
+// const saveWorkout = async (req, res) => {
+//   try {
+//     const { id: workoutId } = req.params;
+//     const { id: userId } = req.user;
+//     const data = await db.workout.create({ _id: workoutId, userId });
+//     res.status(200).json(data);
+//   } catch (error) {
+//     res.status(500).send({ error: error.message });
+//   }
+// };
 
-const getAllWorkouts = async (req, res) => {
-  try {
-    const { id } = req.user;
-    const data = await db.workout.find({ userId: id });
-    res.status(200).json(data);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
+// const getAllWorkouts = async (req, res) => {
+//   try {
+//     const { id } = req.user;
+//     const data = await db.workout.find({ userId: id });
+//     res.status(200).json(data);
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// };
 
 const getExercisesForMuscleGroup = async (req, res) => {
   try {
@@ -166,8 +166,8 @@ router.post('/workouts', createWorkout);
 router.get('/workouts/:id', getWorkout);
 router.put('/workouts/:id', updateWorkout);
 router.delete('/workouts/:id', deleteWorkout);
-router.post('/saveWorkout', saveWorkout);
-router.get('/myWorkout', getAllWorkouts);
+//router.post('/saveWorkout', saveWorkout);
+//router.get('/myWorkout', getAllWorkouts);
 
 router.get('/muscleGroups', getMuscleGroups);
 router.get('/muscleGroups/:id/exercises', getExercisesForMuscleGroup);
