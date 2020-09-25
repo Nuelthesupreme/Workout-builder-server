@@ -7,9 +7,9 @@ const getExercisesForMuscleGroup = async (req, res) => {
   try {
     const { id: muscleGroupId } = req.params;
 
-    const data = await db.MuscleGroup.findById(muscleGroupId).populate(
-      'exercises'
-    );
+    const data = await db.MuscleGroup.findById(muscleGroupId).populate({
+      path: 'exercises',
+    });
 
     res.status(200).json(data);
   } catch (error) {
@@ -51,7 +51,8 @@ export default router;
 //   }
 
 //   if (requestBody.muscleGroup) {
-//     set = { ...set, muscleGroup: requestBody.muscleGroup, exercises: requestBody.exercises || [] };
+//     set = { ...set, muscleGroup: requestBody.muscleGroup,
+// exercises: requestBody.exercises || [] };
 //     params = {
 //       ...params,
 //       $set: set,
