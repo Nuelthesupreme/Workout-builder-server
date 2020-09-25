@@ -8,7 +8,10 @@ const getUserWorkout = async (req, res) => {
     const { id } = req.user;
 
     const allWorkouts = await db.Workout.find({ userId: id })
-      .populate([{ path: 'exercises.exercise' }, { path: 'muscleGroup' }])
+      .populate([
+        { path: 'exercises.exercise' },
+        { path: 'muscleGroup', select: 'name description' },
+      ])
       .sort({
         createdAt: -1,
       });
@@ -25,10 +28,11 @@ const getUserWorkout = async (req, res) => {
 const getUserWorkOutById = async (req, res) => {
   try {
     const { id } = req.params;
+    const userId = req.user.id;
 
-    const workout = await db.Workout.findOne({ _id: id }).populate([
+    const workout = await db.Workout.findOne({ _id: id, userId }).populate([
       { path: 'exercises.exercise' },
-      { path: 'muscleGroup' },
+      { path: 'muscleGroup', select: 'name description' },
     ]);
 
     res.status(200).json({
