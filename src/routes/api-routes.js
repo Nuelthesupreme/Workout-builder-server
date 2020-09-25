@@ -166,8 +166,8 @@ router.post('/workouts', createWorkout);
 router.get('/workouts/:id', getWorkout);
 router.put('/workouts/:id', updateWorkout);
 router.delete('/workouts/:id', deleteWorkout);
-//router.post('/saveWorkout', saveWorkout);
-//router.get('/myWorkout', getAllWorkouts);
+// router.post('/saveWorkout', saveWorkout);
+// router.get('/myWorkout', getAllWorkouts);
 
 router.get('/muscleGroups', getMuscleGroups);
 router.get('/muscleGroups/:id/exercises', getExercisesForMuscleGroup);
