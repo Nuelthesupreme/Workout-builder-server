@@ -69,7 +69,7 @@ const loginUser = async (req, res) => {
           AUTH_SECRET,
           { expiresIn: '1h' },
         );
-        res.status(200).json({ success: true, token: authToken });
+        res.status(200).json({ success: true, userId: user._id, token: authToken });
       } else {
         res.send(401).json({
           success: false,
